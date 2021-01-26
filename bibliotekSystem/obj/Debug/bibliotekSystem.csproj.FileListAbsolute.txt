@@ -1,0 +1,7 @@
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe.config
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.pdb
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csprojAssemblyReference.cache
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csproj.CoreCompileInputs.cache
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.exe
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.pdb
