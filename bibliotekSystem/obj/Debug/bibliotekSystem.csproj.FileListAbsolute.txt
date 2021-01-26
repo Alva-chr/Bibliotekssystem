@@ -5,3 +5,10 @@
 \\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csproj.CoreCompileInputs.cache
 \\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.exe
 \\fs1.ad.ssis.nu\19alch\Documents\programmering 1\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.pdb
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe.config
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\bin\Debug\bibliotekSystem.pdb
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csprojAssemblyReference.cache
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csproj.CoreCompileInputs.cache
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.exe
+C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.pdb

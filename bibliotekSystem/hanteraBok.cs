@@ -14,13 +14,13 @@ namespace bibliotekSystem
         private bool lanad;
 
         //konstruktor för bok
-        public hanteraBok(string t, string ffa, string fma, bool l)
+        public hanteraBok(string title, string ffa, string fma, bool l)
         {
-            titel = t;
+            this.titel = title;
             forfattare = ffa;
             format = fma;
             lanad = l;
-        }
+        } 
 
         public string Titel
         {
@@ -48,38 +48,42 @@ namespace bibliotekSystem
 
         public void lanaBok(List<hanteraBok> lista)
         {
-                if (lista[0].lanad == true)
+                if (lista[0].Lanad == true)
                 {
-                    lista[0].lanad = false;
+                    lista[0].Lanad = false;
                 }
 
                 else
                 {
-                    lista[0].lanad = true;
+                    lista[0].Lanad = true;
                 }
         }
 
         public void lanaBokID(List<hanteraBok> lista, int id)
         {
-            if (lista[id].lanad == true)
+            if (lista[id].Lanad == true)
             {
-                lista[id].lanad = false;
+                lista[id].Lanad = false;
             }
 
-            else if (lista[id].lanad == false)
+            else if (lista[id].Lanad == false)
             {
-                lista[id].lanad = true;
+                lista[id].Lanad = true;
             }
         }
 
-        public void listaBocker()
+        public static void listaBocker(List<hanteraBok> lista)
         {
-
+            for (int i = 0; i< lista.Count(); i++)
+            {
+                Console.WriteLine(i + ". " + "Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format);
+            }
         }
 
-        public static void laggaBok(int antal, List<hanteraBok> lista)
+        public static void laggaBok(int antal, List<hanteraBok> lista, List<hanteraBok> mainLista)
         {
-            string titel, forfattare, format = "manga" ;
+            string titel, forfattare, format = "";
+            char beslut;
 
 
 
@@ -90,18 +94,15 @@ namespace bibliotekSystem
                 bool formatForsok = false;
 
                 Console.Write("Titel: ");
-                titel = Console.ReadLine();
-                titel = titel.ToLower();
+                titel = Console.ReadLine().ToLower();
 
                 Console.Write("Författare: ");
-                forfattare = Console.ReadLine();
-                forfattare = forfattare.ToLower();
+                forfattare = Console.ReadLine().ToLower();
 
                 while (formatForsok == false)
                 {
                     Console.Write("Format(Serietiding, Manga eller Bok): ");
-                    format = Console.ReadLine();
-                    format = format.ToLower();
+                    format = Console.ReadLine().ToLower();
 
                     if (format == "manga" || format == "bok" || format == "serietidning")
                     {
@@ -115,10 +116,33 @@ namespace bibliotekSystem
                 }
 
                 lista.Add(new hanteraBok(titel, forfattare, format, false));
-
-                filHantering.utData(lista);
-
             }
+
+            Console.Clear();
+
+            hanteraBok.listaBocker(lista);
+
+            Console.Write("Vill du lägga till alla böcker över(Y/N)? ");
+            beslut = Convert.ToChar(Console.ReadLine().ToLower());
+
+            if (beslut == 'y')
+            {
+                mainLista.AddRange(lista);
+                filHantering.utData(mainLista);
+            }
+
+            else if (beslut == 'y')
+            {
+                Console.WriteLine("Inga böcker komma läggas till");
+                lista.Clear();
+            }
+
+            else 
+            {
+                Console.WriteLine("Du angav ett felaktigt värde, inga böcker kommer läggas till");
+                lista.Clear();
+            }
+
         }
 
     }

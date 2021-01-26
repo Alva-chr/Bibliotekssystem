@@ -39,7 +39,7 @@ namespace bibliotekSystem
 
         public static void utData(List<hanteraBok> lista)
         {
-            StreamWriter skrivfil = new StreamWriter("bocker.txt");
+            StreamWriter skrivfil = new StreamWriter("bocker.txt", false);
 
             
 
@@ -47,6 +47,7 @@ namespace bibliotekSystem
             {
                 skrivfil.Write("");
                 skrivfil.WriteLine(lista[i].Titel + "|" + lista[i].Forfattare + "|" + lista[i].Format + "|" + lista[i].Lanad);
+                skrivfil.Flush();
             }
 
             skrivfil.Close();
