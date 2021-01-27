@@ -11,6 +11,8 @@ namespace bibliotekSystem
         static void Main(string[] args)
         {
             int val, antal;
+            string sokOrd;
+            bool sokLycka = false;
 
             List<hanteraBok> bokLista = new List<hanteraBok>();
 
@@ -30,7 +32,15 @@ namespace bibliotekSystem
             switch (val)
             {
                 case 1:
-                    //Sökfunktion plats
+                    Console.Clear();
+                    Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
+                    sokOrd = Console.ReadLine().ToLower();
+
+                    while(sokLycka == false)
+                    {
+                        filHantering.sokFunktion(bokLista, sokOrd, sokLycka);
+                    }
+
                     break;
 
                 case 2:

@@ -53,6 +53,31 @@ namespace bibliotekSystem
             skrivfil.Close();
         }
 
+        public static void sokFunktion(List<hanteraBok> lista, string sokOrd, bool lyckad)
+        {
+            List<hanteraBok> bokSokLista = new List<hanteraBok>();
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if(lista[i].Titel == sokOrd || lista[i].Forfattare == sokOrd)
+                {
+                    bokSokLista.Add(lista[i]);
+                }
+            }
+
+            if(bokSokLista.Count > 0)
+            {
+                hanteraBok.listaBocker(bokSokLista);
+                lyckad = true;
+            }
+
+            else
+            {
+                Console.WriteLine("Boke du sökte på finns tyvärr inte!");
+                lyckad = false;
+            }
+        }
+
 
 
 
