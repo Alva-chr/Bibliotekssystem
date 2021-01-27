@@ -53,7 +53,7 @@ namespace bibliotekSystem
             skrivfil.Close();
         }
 
-        public static void sokFunktion(List<hanteraBok> lista, string sokOrd, bool lyckad)
+        public static void sokFunktion(List<hanteraBok> lista, string sokOrd)
         {
             List<hanteraBok> bokSokLista = new List<hanteraBok>();
 
@@ -65,16 +65,14 @@ namespace bibliotekSystem
                 }
             }
 
-            if(bokSokLista.Count > 0)
+            if (bokSokLista.Count > 0)
             {
                 hanteraBok.listaBocker(bokSokLista);
-                lyckad = true;
             }
 
             else
             {
-                Console.WriteLine("Boke du sökte på finns tyvärr inte!");
-                lyckad = false;
+                Console.WriteLine("Boken kunde ej hittas i våra system, Vänlige försök igen!");
             }
         }
 

@@ -10,58 +10,62 @@ namespace bibliotekSystem
     {
         static void Main(string[] args)
         {
-            int val, antal;
+            int val = 1, antal;
             string sokOrd;
-            bool sokLycka = false;
 
             List<hanteraBok> bokLista = new List<hanteraBok>();
 
 
             filHantering.inData(bokLista);
 
-            Console.WriteLine("Vad vill du göra? ");
 
-            Console.WriteLine("1. Sök");
-            Console.WriteLine("2. Lägga till bok");
-            Console.WriteLine("3. Återlämna bok");
-            Console.WriteLine("4. Lista alla Böcker");
-            Console.WriteLine("5. Avsluta");
 
-            val = Convert.ToInt32(Console.ReadLine());
-
-            switch (val)
+            while (val != 5)
             {
-                case 1:
-                    Console.Clear();
-                    Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
-                    sokOrd = Console.ReadLine().ToLower();
+                Console.WriteLine("Vad vill du göra? ");
+                Console.WriteLine("1. Sök");
+                Console.WriteLine("2. Lägga till bok");
+                Console.WriteLine("3. Återlämna bok");
+                Console.WriteLine("4. Lista alla Böcker");
+                Console.WriteLine("5. Avsluta");
 
-                    while(sokLycka == false)
-                    {
-                        filHantering.sokFunktion(bokLista, sokOrd, sokLycka);
-                    }
+                val = Convert.ToInt32(Console.ReadLine());
 
-                    break;
+                switch (val)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
+                        sokOrd = Console.ReadLine().ToLower();
 
-                case 2:
+                        filHantering.sokFunktion(bokLista, sokOrd);
 
-                    Console.Write("Hur många böcker vill du lägga till? ");
-                    antal = Convert.ToInt32(Console.ReadLine());
+                        break;
 
-                    hanteraBok.laggaBok(antal, bokLista);
+                    case 2:
 
-                    break;
+                        Console.Write("Hur många böcker vill du lägga till? ");
+                        antal = Convert.ToInt32(Console.ReadLine());
 
-                case 4:
-                    Console.Clear();
-                    Console.WriteLine("Dessa böcker finns lagrade just nu!!");
-                    hanteraBok.listaBocker(bokLista);
+                        hanteraBok.laggaBok(antal, bokLista);
 
-                    break;
-                default:
-                    break;
+                        break;
+
+                    case 4:
+                        Console.Clear();
+                        Console.WriteLine("Dessa böcker finns lagrade just nu!!");
+                        hanteraBok.listaBocker(bokLista);
+
+                        break;
+
+                    default:
+                        break;
+
+                }
 
             }
+
+
             Console.ReadKey();
         }
     }

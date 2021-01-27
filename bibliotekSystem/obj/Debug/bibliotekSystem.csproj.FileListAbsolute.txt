@@ -12,3 +12,10 @@ C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debu
 C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.csproj.CoreCompileInputs.cache
 C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.exe
 C:\Users\Alva Christensson\source\repos\bibliotekSystem\bibliotekSystem\obj\Debug\bibliotekSystem.pdb
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe.config
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\bin\Debug\bibliotekSystem.exe
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\bin\Debug\bibliotekSystem.pdb
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\obj\Debug\bibliotekSystem.csprojAssemblyReference.cache
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\obj\Debug\bibliotekSystem.csproj.CoreCompileInputs.cache
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\obj\Debug\bibliotekSystem.exe
+\\fs1.ad.ssis.nu\19alch\Documents\programmering 1\Bibliotekssystem\bibliotekSystem\obj\Debug\bibliotekSystem.pdb
