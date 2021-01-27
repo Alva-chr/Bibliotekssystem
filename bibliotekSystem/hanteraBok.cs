@@ -80,10 +80,11 @@ namespace bibliotekSystem
             }
         }
 
-        public static void laggaBok(int antal, List<hanteraBok> lista, List<hanteraBok> mainLista)
+        public static void laggaBok(int antal, List<hanteraBok> mainLista)
         {
             string titel, forfattare, format = "";
             char beslut;
+            List<hanteraBok> nyBok = new List<hanteraBok>();
 
 
 
@@ -115,32 +116,33 @@ namespace bibliotekSystem
                     }
                 }
 
-                lista.Add(new hanteraBok(titel, forfattare, format, false));
+                nyBok.Add(new hanteraBok(titel, forfattare, format, false));
             }
 
             Console.Clear();
 
-            hanteraBok.listaBocker(lista);
+            hanteraBok.listaBocker(nyBok);
 
             Console.Write("Vill du lägga till alla böcker över(Y/N)? ");
             beslut = Convert.ToChar(Console.ReadLine().ToLower());
 
             if (beslut == 'y')
             {
-                mainLista.AddRange(lista);
+                mainLista.AddRange(nyBok);
+
                 filHantering.utData(mainLista);
             }
 
             else if (beslut == 'y')
             {
                 Console.WriteLine("Inga böcker komma läggas till");
-                lista.Clear();
+                nyBok.Clear();
             }
 
             else 
             {
                 Console.WriteLine("Du angav ett felaktigt värde, inga böcker kommer läggas till");
-                lista.Clear();
+                nyBok.Clear();
             }
 
         }

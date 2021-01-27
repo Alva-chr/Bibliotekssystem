@@ -13,7 +13,7 @@ namespace bibliotekSystem
             int val, antal;
 
             List<hanteraBok> bokLista = new List<hanteraBok>();
-            List<hanteraBok> nyBok = new List<hanteraBok>();
+
 
             filHantering.inData(bokLista);
 
@@ -38,7 +38,7 @@ namespace bibliotekSystem
                     Console.Write("Hur många böcker vill du lägga till? ");
                     antal = Convert.ToInt32(Console.ReadLine());
 
-                    hanteraBok.laggaBok(antal, nyBok, bokLista);
+                    hanteraBok.laggaBok(antal, bokLista);
 
                     break;
 
