@@ -12,14 +12,16 @@ namespace bibliotekSystem
         private string forfattare;
         private string format;
         private bool lanad;
+        private int id;
 
         //konstruktor för bok
-        public hanteraBok(string title, string ffa, string fma, bool l)
+        public hanteraBok(string title, string ffa, string fma, bool l, int i)
         {
-            this.titel = title;
+            titel = title;
             forfattare = ffa;
             format = fma;
             lanad = l;
+            id = i;
         } 
 
         public string Titel
@@ -44,6 +46,12 @@ namespace bibliotekSystem
         {
             get { return lanad; }
             set { lanad = value; }
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public void lanaBok(List<hanteraBok> lista)
@@ -76,7 +84,7 @@ namespace bibliotekSystem
         {
             for (int i = 0; i< lista.Count(); i++)
             {
-                Console.WriteLine(i + ". " + "Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format);
+                Console.WriteLine(i + ". " + "Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format + " | ID: " + lista[i].Id);
             }
         }
 
@@ -116,7 +124,7 @@ namespace bibliotekSystem
                     }
                 }
 
-                nyBok.Add(new hanteraBok(titel, forfattare, format, false));
+                nyBok.Add(new hanteraBok(titel, forfattare, format, false, i));
             }
 
             Console.Clear();

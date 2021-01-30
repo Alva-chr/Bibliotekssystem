@@ -53,21 +53,25 @@ namespace bibliotekSystem
             skrivfil.Close();
         }
 
-        public static void sokFunktion(List<hanteraBok> lista, string sokOrd)
+        public static void taBortFilForfattare()
         {
-            List<hanteraBok> bokSokLista = new List<hanteraBok>();
+           
+        }
+
+        public static void sokFunktion(List<hanteraBok> lista, List<hanteraBok> templista, string sokOrd)
+        {
 
             for (int i = 0; i < lista.Count; i++)
             {
                 if(lista[i].Titel == sokOrd || lista[i].Forfattare == sokOrd)
                 {
-                    bokSokLista.Add(lista[i]);
+                    templista.Add(lista[i]);
                 }
             }
 
-            if (bokSokLista.Count > 0)
+            if (templista.Count > 0)
             {
-                hanteraBok.listaBocker(bokSokLista);
+                hanteraBok.listaBocker(templista);
             }
 
             else
