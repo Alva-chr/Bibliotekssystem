@@ -12,6 +12,7 @@ namespace bibliotekSystem
         public static void inData(List<hanteraBok> list)
         {
             string forF, tit, form;
+            int id;
             bool lan;
 
             list.Clear();
@@ -27,8 +28,9 @@ namespace bibliotekSystem
                 forF = bokData[1];
                 form = bokData[2];
                 lan = Convert.ToBoolean(bokData[3]);
+                id = Convert.ToInt32(bokData[4]);
 
-                list.Add(new hanteraBok(tit, forF, form, lan));
+                list.Add(new hanteraBok(tit, forF, form, lan, id));
                 
        
             }
@@ -46,15 +48,60 @@ namespace bibliotekSystem
             for(int i = 0; i < lista.Count; i++)
             {
                 skrivfil.Write("");
-                skrivfil.WriteLine(lista[i].Titel + "|" + lista[i].Forfattare + "|" + lista[i].Format + "|" + lista[i].Lanad);
+                skrivfil.WriteLine(lista[i].Titel + "|" + lista[i].Forfattare + "|" + lista[i].Format + "|" + lista[i].Lanad + "|" + lista[i].Id);
                 skrivfil.Flush();
             }
 
             skrivfil.Close();
         }
 
-        public static void taBortFilForfattare()
+        public static void taBortBok(List<hanteraBok> mainLista, string sokord)
         {
+            List<hanteraBok> tempLista = new List<hanteraBok>();
+            char svar = 'y';
+            int id;
+
+            sokFunktion(mainLista, tempLista, sokord);
+
+
+            Console.WriteLine("a. Ta bort alla listade böcker");
+            Console.WriteLine("b. Ta bort en bok");
+            svar = Convert.ToChar(Console.ReadLine().ToLower());
+
+            if(svar == 'b' || tempLista.Count == 1)
+            {
+                Console.Write("Ange ID för boken som du vill ta bort: ");
+                id = Convert.ToInt32(Console.ReadLine());
+
+                for (int i = 0; i < mainLista.Count; i++)
+                {
+                    if(mainLista[i].Id == id)
+                    {
+                        mainLista.RemoveAt(i);
+                    }
+                }
+                utData(mainLista);
+            }
+
+            else if (svar == 'a')
+            {
+                for(int i = 0; i < mainLista.Count; i++)
+                {
+                    Console.WriteLine("Checkar mainlista");
+                    for (int j = 0; j < tempLista.Count; j++)
+                    {
+                        Console.WriteLine("Checkars Templista");
+                        if(mainLista[i].Titel == tempLista[j].Titel || mainLista[i].Forfattare == tempLista[j].Forfattare)
+                        {
+                            Console.WriteLine("Tar bort bok");
+                            mainLista.RemoveAt(i);
+                        }
+                    }
+                }
+
+                utData(mainLista);
+            }
+
            
         }
 

@@ -1,7 +1,3 @@
-kaguya sama vol. 1|aka akasaka|manga|False
-blå lotus|herge|serietidning|False
-harry potter och drogerna|jk rowling on drugs|bok|False
-te|oscar|bok|False
-kaguya sama vol. 1|aka akasaka|manga|False
-kaguya sama vol. 2|aka akasaka|manga|False
-saga|jag|bok|False
+blå lotus|herge|serietidning|False|1
+harry potter och drogerna|jk rowling on drugs|bok|False|2
+te|oscar|bok|False|3

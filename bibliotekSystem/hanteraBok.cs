@@ -84,7 +84,7 @@ namespace bibliotekSystem
         {
             for (int i = 0; i< lista.Count(); i++)
             {
-                Console.WriteLine(i + ". " + "Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format + " | ID: " + lista[i].Id);
+                Console.WriteLine("Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format + " | ID: " + lista[i].Id);
             }
         }
 
