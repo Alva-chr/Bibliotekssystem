@@ -1,3 +1,5 @@
-blå lotus|herge|serietidning|False|1
-harry potter och drogerna|jk rowling on drugs|bok|False|2
-te|oscar|bok|False|3
+﻿robinson crosue|daniel defoe|bok|False|0
+tintin och blå lotus|herge|serietidning|False|1
+fantomen och rubinbröloppet|idk|serietidning|False|2
+tintin och enhörnings hemlighet|herge|serietidning|False|3
+tintin och faraos cigarrer|herge|serietidning|False|4

@@ -30,7 +30,7 @@ namespace bibliotekSystem
                 lan = Convert.ToBoolean(bokData[3]);
                 id = Convert.ToInt32(bokData[4]);
 
-                list.Add(new hanteraBok(tit, forF, form, lan, id));
+                list.Add(new hanteraBok(tit, forF, form, lan));
                 
        
             }
@@ -61,8 +61,9 @@ namespace bibliotekSystem
             char svar = 'y';
             int id;
 
-            sokFunktion(mainLista, tempLista, sokord);
+            Console.Clear();
 
+            sokFunktion(mainLista, tempLista, sokord);
 
             Console.WriteLine("a. Ta bort alla listade böcker");
             Console.WriteLine("b. Ta bort en bok");
@@ -83,18 +84,20 @@ namespace bibliotekSystem
                 utData(mainLista);
             }
 
+            //FUnktion för att ta bort flera böcker
             else if (svar == 'a')
             {
-                for(int i = 0; i < mainLista.Count; i++)
-                {
+                //går igenom den första boken i mainlistan och jämför den med alla templistan med böcker som ska bort
+                for(int i = 0; i < tempLista.Count; i++)
+                { 
                     Console.WriteLine("Checkar mainlista");
-                    for (int j = 0; j < tempLista.Count; j++)
+                    for (int j = 0; j < mainLista.Count; j++)
                     {
                         Console.WriteLine("Checkars Templista");
-                        if(mainLista[i].Titel == tempLista[j].Titel || mainLista[i].Forfattare == tempLista[j].Forfattare)
+                        if(mainLista[j].Titel == tempLista[i].Titel || mainLista[j].Forfattare == tempLista[i].Forfattare)
                         {
                             Console.WriteLine("Tar bort bok");
-                            mainLista.RemoveAt(i);
+                            mainLista.RemoveAt(j);
                         }
                     }
                 }

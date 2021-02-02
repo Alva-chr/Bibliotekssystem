@@ -12,16 +12,15 @@ namespace bibliotekSystem
         private string forfattare;
         private string format;
         private bool lanad;
-        private int id;
+        public int id;
 
         //konstruktor för bok
-        public hanteraBok(string title, string ffa, string fma, bool l, int i)
+        public hanteraBok(string title, string ffa, string fma, bool l)
         {
             titel = title;
             forfattare = ffa;
             format = fma;
             lanad = l;
-            id = i;
         } 
 
         public string Titel
@@ -124,7 +123,7 @@ namespace bibliotekSystem
                     }
                 }
 
-                nyBok.Add(new hanteraBok(titel, forfattare, format, false, i));
+                nyBok.Add(new hanteraBok(titel, forfattare, format, false));
             }
 
             Console.Clear();
@@ -136,12 +135,15 @@ namespace bibliotekSystem
 
             if (beslut == 'y')
             {
-                mainLista.AddRange(nyBok);
-
+                for (int i = 0; i < nyBok.Count; i++)
+                {
+                    nyBok[i].Id = mainLista.Count;
+                    mainLista.Add(nyBok[i]);
+                }
                 filHantering.utData(mainLista);
             }
 
-            else if (beslut == 'y')
+            else if (beslut == 'n')
             {
                 Console.WriteLine("Inga böcker komma läggas till");
                 nyBok.Clear();

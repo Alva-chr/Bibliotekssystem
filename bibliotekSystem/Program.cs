@@ -11,7 +11,7 @@ namespace bibliotekSystem
         static void Main(string[] args)
         {
             int val = 1, antal, sokVal;
-            string sokOrd;
+            string sokOrd = "aka akasaka";
             char svar = ' ';
 
             List<hanteraBok> bokLista = new List<hanteraBok>();
@@ -36,38 +36,46 @@ namespace bibliotekSystem
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
-                        sokOrd = Console.ReadLine().ToLower();
 
-                        tempLista.Clear();
-                        filHantering.sokFunktion(bokLista, tempLista,sokOrd);
-
-                        if (svar == 'n')
+                        while(tempLista.Count == 0)
                         {
-                            return;
+                            tempLista.Clear();
+                            sokOrd = null;
+                            Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
+                            sokOrd = Console.ReadLine().ToLower();
+
+                            
+                            filHantering.sokFunktion(bokLista, tempLista, sokOrd);
                         }
 
-                        Console.WriteLine("Vad vill du göra? ");
-                        Console.WriteLine("1. Ta bort bok");
-                        Console.WriteLine("2. Låna bok");
-
-                        sokVal = Convert.ToInt32(Console.ReadLine());
-
-                        switch (sokVal)
+                        if (tempLista.Count >= 1)
                         {
-                            case 1:
-                                filHantering.taBortBok(bokLista, sokOrd);
-                                break;
+                            Console.WriteLine("Vad vill du göra? ");
+                            Console.WriteLine("1. Ta bort bok");
+                            Console.WriteLine("2. Låna bok");
 
-                            case 2:
-                                break;
+                            sokVal = Convert.ToInt32(Console.ReadLine());
 
-                            default:
-                                Console.WriteLine("Du har angett ett olgiltigt svar;");
-                                break;
+                            switch (sokVal)
+                            {
+                                case 1:
+                                    filHantering.taBortBok(bokLista, sokOrd);
+                                    break;
+
+                                case 2:
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Du har angett ett olgiltigt svar;");
+                                    break;
+
+                            }
+                            break;
 
                         }
+
                         break;
+
 
                     case 2:
 
@@ -82,6 +90,7 @@ namespace bibliotekSystem
                         Console.Clear();
                         Console.WriteLine("Dessa böcker finns lagrade just nu!!");
                         hanteraBok.listaBocker(bokLista);
+                        Console.ReadKey();
 
                         break;
 
