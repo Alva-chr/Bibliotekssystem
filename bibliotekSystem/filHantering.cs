@@ -28,11 +28,13 @@ namespace bibliotekSystem
                 forF = bokData[1];
                 form = bokData[2];
                 lan = Convert.ToBoolean(bokData[3]);
-                id = Convert.ToInt32(bokData[4]);
 
                 list.Add(new hanteraBok(tit, forF, form, lan));
-                
-       
+            }
+
+            for(int i = 0; i<list.Count; i++)
+            {
+                list[i].id = i;
             }
 
             lasFil.Close();

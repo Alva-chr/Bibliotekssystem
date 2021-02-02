@@ -81,7 +81,7 @@ namespace bibliotekSystem
 
         public static void listaBocker(List<hanteraBok> lista)
         {
-            for (int i = 0; i< lista.Count(); i++)
+            for (int i = 0; i< lista.Count; i++)
             {
                 Console.WriteLine("Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format + " | ID: " + lista[i].Id);
             }
