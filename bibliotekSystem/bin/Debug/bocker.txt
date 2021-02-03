@@ -1,6 +1,5 @@
 kaguya sama vol. 2|aka akasaka|manga|False|0
-tintin och blå lotus|herge|serietidning|False|0
-robinson crusoe|daniel defoe|bok|False|0
-kaguya sama vol. 1|aka akasaka|manga|False|0
-tintin och svarta ön|herge|serietidning|False|4
+tintin och blå lotus|herge|serietidning|False|1
+robinson crusoe|daniel defoe|bok|False|2
+kaguya sama vol. 1|aka akasaka|manga|False|3
 kaguya sama vol. 3|aka akasaka|manga|False|5

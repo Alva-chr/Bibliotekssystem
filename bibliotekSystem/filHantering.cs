@@ -60,7 +60,7 @@ namespace bibliotekSystem
         public static void taBortBok(List<hanteraBok> mainLista, string sokord)
         {
             List<hanteraBok> tempLista = new List<hanteraBok>();
-            char svar = 'y';
+            char svar;
             int id;
 
             Console.Clear();
@@ -128,7 +128,7 @@ namespace bibliotekSystem
 
             else
             {
-                Console.WriteLine("Boken kunde ej hittas i våra system, Vänlige försök igen!");
+                Console.WriteLine("Boken kunde ej hittas i våra system!");
             }
         }
 

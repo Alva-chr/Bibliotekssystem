@@ -36,16 +36,42 @@ namespace bibliotekSystem
                 {
                     case 1:
                         Console.Clear();
+                        char beslut;
 
                         while(tempLista.Count == 0)
                         {
                             tempLista.Clear();
-                            sokOrd = null;
                             Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
                             sokOrd = Console.ReadLine().ToLower();
 
                             
                             filHantering.sokFunktion(bokLista, tempLista, sokOrd);
+
+                            if(tempLista.Count == 0)
+                            {
+
+
+                                Console.WriteLine("Vill du testa igen (Y/N)? ");
+                                beslut = Convert.ToChar(Console.ReadLine().ToLower());
+
+                                if (beslut == 'n')
+                                {
+                                    break;
+                                }
+
+                                else if (beslut == 'y')
+                                {
+                                    Console.WriteLine("Tryck enter för att testa igen!");
+                                    Console.ReadKey();
+                                }
+
+                                else
+                                {
+                                    Console.WriteLine("Du angav ett felaktigt värde, du kommer få testa igen.");
+                                }
+
+                            }
+
                         }
 
                         if (tempLista.Count >= 1)
