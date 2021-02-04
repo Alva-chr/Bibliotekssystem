@@ -41,6 +41,7 @@ namespace bibliotekSystem
                         while(tempLista.Count == 0)
                         {
                             tempLista.Clear();
+                            sokOrd = null;
                             Console.WriteLine("Vad för bok vill du söka efter (författer eller Titel)");
                             sokOrd = Console.ReadLine().ToLower();
 
