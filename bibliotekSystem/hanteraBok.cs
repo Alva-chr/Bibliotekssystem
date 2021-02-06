@@ -77,12 +77,7 @@ namespace bibliotekSystem
                     {
                         lista[i].Lanad = true;
                         Console.WriteLine("Bok är nu lånad!");
-                        Console.ReadKey();
-
-                        if(lista[i].Lanad == true)
-                        {
-                            Console.WriteLine("AJHHFHNEJ");
-                        }
+                        break;
                     }
                 }
             }
@@ -104,7 +99,7 @@ namespace bibliotekSystem
                     {
                         Console.WriteLine("Boken är återlämnad!");
                         lista[i].Lanad = false;
-                        Console.ReadKey();
+                        break;
                     }
 
                     else if (lista[i].Lanad == false)
