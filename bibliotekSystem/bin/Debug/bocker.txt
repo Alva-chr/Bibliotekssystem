@@ -5,3 +5,4 @@ kaguya sama vol. 3|aka akasaka|manga|False|3
 tintin och den mystiska stjärnan|herge|serietidning|False|4
 kaguya sama vol. 2|aka akasaka|manga|False|5
 tintin och gerillan|herge|serietidning|False|6
+kaguya sama vol. 6|aka akasaka|manga|False|7

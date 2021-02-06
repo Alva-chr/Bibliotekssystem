@@ -53,37 +53,77 @@ namespace bibliotekSystem
             set { id = value; }
         }
 
-        public void lanaBok(List<hanteraBok> lista)
-        {
-                if (lista[0].Lanad == true)
-                {
-                    lista[0].Lanad = false;
-                }
 
-                else
+        public static void lanaBokID(List<hanteraBok> lista)
+        {
+            int id;
+
+            Console.Write("Vad för id har boken du vill låna? ");
+
+            id = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < lista.Count(); i++)
+            {
+                if(lista[i].id == id)
                 {
-                    lista[0].Lanad = true;
+                    if (lista[i].Lanad == true)
+                    {
+                        Console.WriteLine("Boken redan lånad och därav kan du inte låna den ");
+                        Console.ReadKey();
+                        return;
+                    }
+
+                    else if (lista[i].Lanad == false)
+                    {
+                        lista[i].Lanad = true;
+                        Console.WriteLine("Bok är nu lånad!");
+                        Console.ReadKey();
+
+                        if(lista[i].Lanad == true)
+                        {
+                            Console.WriteLine("AJHHFHNEJ");
+                        }
+                    }
                 }
+            }
         }
 
-        public void lanaBokID(List<hanteraBok> lista, int id)
+        public static void aterlamnaBok(List<hanteraBok> lista)
         {
-            if (lista[id].Lanad == true)
+            int id;
+
+            Console.Write("Vad för id har boken du vill återlämna? ");
+
+            id = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < lista.Count(); i++)
             {
-                lista[id].Lanad = false;
+                if (lista[i].id == id)
+                {
+                    if (lista[i].Lanad == true)
+                    {
+                        Console.WriteLine("Boken är återlämnad!");
+                        lista[i].Lanad = false;
+                        Console.ReadKey();
+                    }
+
+                    else if (lista[i].Lanad == false)
+                    {
+                        Console.WriteLine("Denna bok är inte lånad och därav kan du inte återlämna den! ");
+                        Console.ReadKey();
+                    }
+                }
             }
 
-            else if (lista[id].Lanad == false)
-            {
-                lista[id].Lanad = true;
-            }
         }
+
+
 
         public static void listaBocker(List<hanteraBok> lista)
         {
             for (int i = 0; i< lista.Count; i++)
             {
-                Console.WriteLine("Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format + " | ID: " + lista[i].Id);
+                Console.WriteLine("Titel: " + lista[i].Titel + " | Författare: " + lista[i].Forfattare + " | Format: " + lista[i].Format +" | Lånad: "+ lista[i].Lanad + " | ID: " + lista[i].Id);
             }
         }
 

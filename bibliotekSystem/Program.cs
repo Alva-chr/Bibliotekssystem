@@ -10,25 +10,25 @@ namespace bibliotekSystem
     {
         static void Main(string[] args)
         {
-            int val = 1, antal, sokVal;
+            int val = 1, antal, sokVal, id;
             string sokOrd = "aka akasaka";
-            char svar = ' ';
+
 
             List<hanteraBok> bokLista = new List<hanteraBok>();
             List<hanteraBok> tempLista = new List<hanteraBok>();
 
-            while (val != 5)
+            while (val != 4)
             {
                 filHantering.inData(bokLista);
+                tempLista.Clear();
 
                 Console.Clear();
 
                 Console.WriteLine("Vad vill du göra? ");
                 Console.WriteLine("1. Sök");
                 Console.WriteLine("2. Lägga till bok");
-                Console.WriteLine("3. Återlämna bok");
-                Console.WriteLine("4. Lista alla Böcker");
-                Console.WriteLine("5. Avsluta");
+                Console.WriteLine("3. Lista alla Böcker");
+                Console.WriteLine("4. Avsluta");
 
                 val = Convert.ToInt32(Console.ReadLine());
 
@@ -80,6 +80,7 @@ namespace bibliotekSystem
                             Console.WriteLine("Vad vill du göra? ");
                             Console.WriteLine("1. Ta bort bok");
                             Console.WriteLine("2. Låna bok");
+                            Console.WriteLine("3. återlämna bok");
 
                             sokVal = Convert.ToInt32(Console.ReadLine());
 
@@ -90,6 +91,13 @@ namespace bibliotekSystem
                                     break;
 
                                 case 2:
+                                    hanteraBok.lanaBokID(bokLista);
+
+                                    break;
+
+                                case 3:
+                                    hanteraBok.aterlamnaBok(bokLista);
+
                                     break;
 
                                 default:
@@ -103,7 +111,6 @@ namespace bibliotekSystem
 
                         break;
 
-
                     case 2:
 
                         Console.Write("Hur många böcker vill du lägga till? ");
@@ -113,11 +120,15 @@ namespace bibliotekSystem
 
                         break;
 
-                    case 4:
+                    case 3:
                         Console.Clear();
                         Console.WriteLine("Dessa böcker finns lagrade just nu!!");
                         hanteraBok.listaBocker(bokLista);
                         Console.ReadKey();
+
+                        break;
+
+                    case 4:
 
                         break;
 
