@@ -1,8 +1,9 @@
 robinson crusoe|daniel defoe|bok|False|0
 tintin och enhörningsens hemlighet|herge|serietidning|False|1
-kaguya sama vol. 4 |aka akasaka|manga|False|2
+kaguya sama vol. 4 |aka akasaka|manga|True|2
 kaguya sama vol. 3|aka akasaka|manga|False|3
 tintin och den mystiska stjärnan|herge|serietidning|False|4
 kaguya sama vol. 2|aka akasaka|manga|False|5
 tintin och gerillan|herge|serietidning|False|6
 kaguya sama vol. 6|aka akasaka|manga|False|7
+kaguya sama vol. 89|aka akasaka|manga|False|8

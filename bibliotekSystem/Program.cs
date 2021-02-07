@@ -8,13 +8,14 @@ namespace bibliotekSystem
 {
     class Program
     {
+        public static List<hanteraBok> bokLista;
         static void Main(string[] args)
         {
-            int val = 1, antal, sokVal, id;
+            int val = 1, antal, sokVal;
             string sokOrd = "aka akasaka";
 
 
-            List<hanteraBok> bokLista = new List<hanteraBok>();
+            bokLista = new List<hanteraBok>();
             List<hanteraBok> tempLista = new List<hanteraBok>();
 
             while (val != 4)
@@ -91,12 +92,12 @@ namespace bibliotekSystem
                                     break;
 
                                 case 2:
-                                    hanteraBok.lanaBokID(bokLista);
+                                    hanteraBok.lanaBokID();
 
                                     break;
 
                                 case 3:
-                                    hanteraBok.aterlamnaBok(bokLista);
+                                    hanteraBok.aterlamnaBok();
 
                                     break;
 
@@ -105,9 +106,10 @@ namespace bibliotekSystem
                                     break;
 
                             }
-                            break;
 
                         }
+
+                        filHantering.utData(bokLista);
 
                         break;
 
@@ -116,7 +118,7 @@ namespace bibliotekSystem
                         Console.Write("Hur många böcker vill du lägga till? ");
                         antal = Convert.ToInt32(Console.ReadLine());
 
-                        hanteraBok.laggaBok(antal, bokLista);
+                        hanteraBok.laggaBok(antal);
 
                         break;
 

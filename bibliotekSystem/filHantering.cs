@@ -12,7 +12,6 @@ namespace bibliotekSystem
         public static void inData(List<hanteraBok> list)
         {
             string forF, tit, form;
-            int id;
             bool lan;
 
             list.Clear();
@@ -34,7 +33,7 @@ namespace bibliotekSystem
 
             for(int i = 0; i<list.Count; i++)
             {
-                list[i].id = i;
+                list[i].Id = i;
             }
 
             lasFil.Close();
@@ -71,14 +70,14 @@ namespace bibliotekSystem
             Console.WriteLine("b. Ta bort en bok");
             svar = Convert.ToChar(Console.ReadLine().ToLower());
 
-            if(svar == 'b' || tempLista.Count == 1)
+            if (svar == 'b' || tempLista.Count == 1)
             {
                 Console.Write("Ange ID för boken som du vill ta bort: ");
                 id = Convert.ToInt32(Console.ReadLine());
 
                 for (int i = 0; i < mainLista.Count; i++)
                 {
-                    if(mainLista[i].Id == id)
+                    if (mainLista[i].Id == id)
                     {
                         mainLista.RemoveAt(i);
                     }
@@ -90,13 +89,13 @@ namespace bibliotekSystem
             else if (svar == 'a')
             {
                 //går igenom den första boken i mainlistan och jämför den med alla templistan med böcker som ska bort
-                for(int i = 0; i < tempLista.Count; i++)
-                { 
+                for (int i = 0; i < tempLista.Count; i++)
+                {
                     Console.WriteLine("Checkar mainlista");
                     for (int j = 0; j < mainLista.Count; j++)
                     {
                         Console.WriteLine("Checkars Templista");
-                        if(mainLista[j].Titel == tempLista[i].Titel || mainLista[j].Forfattare == tempLista[i].Forfattare)
+                        if (mainLista[j].Titel == tempLista[i].Titel || mainLista[j].Forfattare == tempLista[i].Forfattare)
                         {
                             Console.WriteLine("Tar bort bok");
                             mainLista.RemoveAt(j);
@@ -107,7 +106,7 @@ namespace bibliotekSystem
                 utData(mainLista);
             }
 
-           
+
         }
 
         public static void sokFunktion(List<hanteraBok> lista, List<hanteraBok> templista, string sokOrd)
