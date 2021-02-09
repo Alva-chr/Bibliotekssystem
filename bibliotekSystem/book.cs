@@ -16,6 +16,9 @@ namespace bibliotekSystem
 
         public bool Loaned { get; set; }
 
+        public int Id;
+
+        // Constructor for a book
         public book(string Author, string Titel, string Format, bool Loaned)
         {
             this.Author = Author;
@@ -24,33 +27,94 @@ namespace bibliotekSystem
             this.Loaned = Loaned;
         }
 
+        // function to list all books in a list
+        public static void showAllBooks (List<book> books)
+        {
+            // A loop that goes through the list and write out data about the book
+            for(int i = 0; i < books.Count; i++)
+            {
+                Console.WriteLine("Author: " + books[i].Author + " | Titel: " + books[i].Titel + " | Format: " + books[i].Format + " | Loaned: " + books[i].Loaned + " | ID: " + books[i].Id);
+            }
+        }
+
+        // Function to add books
         public static void addBook (List<book> mainList)
         {
+            List<book> tempList = new List<book>();
             int quantity;
             char confirmation;
-            string titel, author, format;
-            bool loaned;
+            string titel, author, format = "book";
 
+
+            // Input regarding how many books the user want to add
             Console.WriteLine("How many books do you want to add?");
             quantity = Convert.ToInt32(Console.ReadLine());
 
+            // a loop that repeats for every book the user want to add
             for(int i = 0; i < quantity; i++)
             {
+                bool formatSuccess = false;
+
                 Console.Write("Author: ");
                 author = Console.ReadLine().ToLower();
 
                 Console.Write("Titel: ");
                 titel = Console.ReadLine().ToLower();
 
-                Console.Write("Format(comicbook, manga or book): ");
-                format = Console.ReadLine().ToLower();
-
-                if(format == "comicbook" || format == "manga" || format == "book")
+                // checks if the users input is one of the approved formats
+                while (formatSuccess == false)
                 {
+                    Console.Write("Format(comicbook, manga or book): ");
+                    format = Console.ReadLine().ToLower();
 
+                    if (format == "comicbook" || format == "manga" || format == "book")
+                    {
+                        formatSuccess = true;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("You have entered an invalid option, please try again!");
+                    }
                 }
+
+                // Adds new book to temporary list
+                tempList.Add(new book(author, titel, format, false));
             }
 
+            showAllBooks(tempList);
+
+            //Confirms that the user want to add all the books in tempList
+            Console.Write("Do you want to add these books (Y/N)? ");
+            confirmation = Convert.ToChar(Console.ReadLine().ToLower());
+
+            if (confirmation == 'y')
+            {
+                // A loop that gives the new books an ID depending on what place they have in the mainlist and adds them to the main list
+                for (int i = 0; i < tempList.Count; i++)
+                {
+                    tempList[i].Id = mainList.Count;
+                    mainList.Add(tempList[i]);
+
+                    // Saves data in textfile
+                    file.bookDataOut(mainList);
+                }
+
+                Console.WriteLine("All the books have now been added!");
+                return;
+            }
+
+            else if (confirmation == 'n')
+            {
+                Console.WriteLine("None of these books will be added. Press enter to return to the start menu!");
+                Console.ReadKey();
+            }
+
+            else
+            {
+                Console.WriteLine("Your input was not one of the above choices. None of these books will be added and you will be directed back to the start menu");
+                Console.ReadKey();
+            }
         }
     }
 }

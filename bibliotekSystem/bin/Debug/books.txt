@@ -1,0 +1,3 @@
+herge|tintin in america|comicbook|False|0
+herge|tintin and the broken ear|comicbook|False|1
+herge|tintin and the black island|comicbook|False|2
