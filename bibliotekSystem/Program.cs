@@ -11,15 +11,16 @@ namespace bibliotekSystem
         static void Main(string[] args)
         {
             List<book> mainBookList = new List<book>();
-
-            //reads in data from textfile
-            file.bookDataIn(mainBookList);
+            List<book> temporaryList = new List<book>();
 
             int answer = 0;
             Console.WriteLine("Welcome to my library system!");
 
             do
             {
+                //reads in data from textfile
+                file.bookDataIn(mainBookList);
+
                 Console.Clear();
 
                 //mainmenu
@@ -34,7 +35,9 @@ namespace bibliotekSystem
                 switch (answer)
                 {
                     case 1:
-                        //This is where the search function is going to be
+
+                        book.searchInput(mainBookList, temporaryList);
+
                         break;
 
                     case 2:

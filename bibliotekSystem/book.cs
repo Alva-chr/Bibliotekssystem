@@ -35,6 +35,7 @@ namespace bibliotekSystem
             {
                 Console.WriteLine("Author: " + books[i].Author + " | Titel: " + books[i].Titel + " | Format: " + books[i].Format + " | Loaned: " + books[i].Loaned + " | ID: " + books[i].Id);
             }
+            Console.ReadKey();
         }
 
         // Function to add books
@@ -114,6 +115,86 @@ namespace bibliotekSystem
             {
                 Console.WriteLine("Your input was not one of the above choices. None of these books will be added and you will be directed back to the start menu");
                 Console.ReadKey();
+            }
+        }
+
+        //search function that will search for author and titel
+        public static void search (string searchWord, List<book> books, List<book> foundlings)
+        {
+            // loop that goes through the mainlist
+            for(int i = 0; i < books.Count; i++)
+            {
+                //if it fins a match it will add the object to the foundlings list
+                if(searchWord == books[i].Author || searchWord == books[i].Titel)
+                {
+                    foundlings.Add(books[i]);
+                }
+            }
+        }
+
+        public static void searchInput(List<book> books, List<book> foundlings)
+        {
+            string searchWord;
+            char tryAgain = 'y';
+
+            foundlings.Clear();
+
+            while(foundlings.Count == 0)
+            {
+                Console.Write("Enter search word (either titel or author): ");
+                searchWord = Console.ReadLine().ToLower();
+
+                search(searchWord, books, foundlings);
+
+                if (foundlings.Count == 0)
+                {
+                     Console.WriteLine("We couldn't find anything matching what you searched for." +
+                            "Do you want to try again (Y/N)?");
+
+                     tryAgain = Convert.ToChar(Console.ReadLine().ToLower());
+
+                     if (tryAgain == 'n')
+                     {
+                         break;
+                     }
+
+                     else if (tryAgain == 'y')
+                     {
+                        Console.WriteLine("You will now get to try again!");
+                     }
+
+                     else
+                    {
+                        Console.WriteLine("Invalid input, you will now get to try again!");
+                    }
+                }
+
+                else if (foundlings.Count > 0)
+                {
+                    Console.WriteLine("We found these books:");
+
+                    showAllBooks(foundlings);
+                }
+            }
+        }
+
+        public static void searchMeny()
+        {
+            int answer;
+
+            Console.WriteLine("What do you want to do?");
+            answer = Convert.ToInt32(Console.ReadLine());
+
+            switch (answer)
+            {
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
             }
         }
     }
