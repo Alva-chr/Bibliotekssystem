@@ -13,7 +13,8 @@ namespace bibliotekSystem
             List<book> mainBookList = new List<book>();
             List<book> temporaryList = new List<book>();
 
-            int answer = 0;
+            int answer = 0, searchMenuAnswer = 0;
+
             Console.WriteLine("Welcome to my library system!");
 
             do
@@ -37,6 +38,26 @@ namespace bibliotekSystem
                     case 1:
 
                         book.searchInput(mainBookList, temporaryList);
+                        book.searchMeny(searchMenuAnswer);
+
+                        switch (searchMenuAnswer)
+                        {
+                            case 1:
+                                // delete one or more books funtion will go here
+                                break;
+
+                            case 2:
+                                // Loan book funtion
+                                break;
+
+                            case 3:
+                                // return book funtion
+                                break;
+
+                            default:
+                                Console.WriteLine("Invalid input, you will now be redirected back to the Main Menu!");
+                                break;
+                        }
 
                         break;
 

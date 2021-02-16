@@ -141,11 +141,14 @@ namespace bibliotekSystem
 
             while(foundlings.Count == 0)
             {
+                //input from user regarding search
                 Console.Write("Enter search word (either titel or author): ");
                 searchWord = Console.ReadLine().ToLower();
 
+                //calls the search function
                 search(searchWord, books, foundlings);
 
+                //if it doesn't find a match
                 if (foundlings.Count == 0)
                 {
                      Console.WriteLine("We couldn't find anything matching what you searched for." +
@@ -153,22 +156,26 @@ namespace bibliotekSystem
 
                      tryAgain = Convert.ToChar(Console.ReadLine().ToLower());
 
+                    //if user wants return to mainmenu
                      if (tryAgain == 'n')
                      {
                          break;
                      }
 
+                     //let's user try again
                      else if (tryAgain == 'y')
                      {
                         Console.WriteLine("You will now get to try again!");
                      }
 
+                     //if user don't know how to read and don't know how to write Y/N
                      else
-                    {
+                     {
                         Console.WriteLine("Invalid input, you will now get to try again!");
-                    }
+                     }
                 }
 
+                //write out all the books found
                 else if (foundlings.Count > 0)
                 {
                     Console.WriteLine("We found these books:");
@@ -178,23 +185,49 @@ namespace bibliotekSystem
             }
         }
 
-        public static void searchMeny()
+        //options what to do with the foundlings
+        public static void searchMeny(int answer)
         {
-            int answer;
-
             Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1. Delete books");
+            Console.WriteLine("2. Loan book");
+            Console.WriteLine("3. Return book");
+
             answer = Convert.ToInt32(Console.ReadLine());
+        }
 
-            switch (answer)
+        public static void deleteBook(string searchWord, List<book> mainList, List<book> foundlings)
+        {
+            int option, Id;
+
+            search(searchWord, mainList, foundlings);
+
+            Console.WriteLine("choose on of the following options");
+            Console.WriteLine("1. Delete all the books shown");
+            Console.WriteLine("2. Delete one book ");
+            Console.WriteLine("3. Exit");
+            Console.Write("Option: ");
+
+            option = Convert.ToInt32(Console.ReadLine());
+
+            if (option == 1)
             {
-                case 1:
-                    break;
 
-                case 2:
-                    break;
+            }
 
-                case 3:
-                    break;
+            else if (option == 2)
+            {
+
+            }
+
+            else if(option == 3)
+            {
+                return;
+            }
+
+            else
+            {
+                Console.WriteLine("Invalid input, you will be redirected to the main menu!");
             }
         }
     }
