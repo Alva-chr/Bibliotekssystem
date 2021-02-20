@@ -13,7 +13,9 @@ namespace bibliotekSystem
             List<book> mainBookList = new List<book>();
             List<book> temporaryList = new List<book>();
 
-            int answer = 0, searchMenuAnswer = 0;
+            int answer, searchMenuAnswer = 0;
+
+            string searchWord = " ";
 
             Console.WriteLine("Welcome to my library system!");
 
@@ -37,13 +39,21 @@ namespace bibliotekSystem
                 {
                     case 1:
 
-                        book.searchInput(mainBookList, temporaryList);
-                        book.searchMeny(searchMenuAnswer);
+                        book.searchInput(searchWord, mainBookList, temporaryList);
+
+                        Console.WriteLine("What do you want to do?");
+                        Console.WriteLine("1. Delete books");
+                        Console.WriteLine("2. Loan book");
+                        Console.WriteLine("3. Return book");
+                        Console.WriteLine("4. Exit");
+
+                        searchMenuAnswer = Convert.ToInt32(Console.ReadLine());
 
                         switch (searchMenuAnswer)
                         {
                             case 1:
-                                // delete one or more books funtion will go here
+                                // delete one or more books funtion
+                                book.deleteBook(searchWord, mainBookList, temporaryList);
                                 break;
 
                             case 2:
@@ -54,8 +64,13 @@ namespace bibliotekSystem
                                 // return book funtion
                                 break;
 
+                            case 4:
+                                Console.WriteLine("You will noe be redirected back to the main menu!");
+                                break;
+
                             default:
                                 Console.WriteLine("Invalid input, you will now be redirected back to the Main Menu!");
+                                Console.ReadKey();
                                 break;
                         }
 

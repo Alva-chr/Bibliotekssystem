@@ -132,9 +132,8 @@ namespace bibliotekSystem
             }
         }
 
-        public static void searchInput(List<book> books, List<book> foundlings)
-        {
-            string searchWord;
+        public static void searchInput(string searchWord, List<book> books, List<book> foundlings)
+        { 
             char tryAgain = 'y';
 
             foundlings.Clear();
@@ -188,20 +187,16 @@ namespace bibliotekSystem
         //options what to do with the foundlings
         public static void searchMeny(int answer)
         {
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("1. Delete books");
-            Console.WriteLine("2. Loan book");
-            Console.WriteLine("3. Return book");
 
-            answer = Convert.ToInt32(Console.ReadLine());
         }
 
         public static void deleteBook(string searchWord, List<book> mainList, List<book> foundlings)
         {
-            int option, Id;
+            int option, id;
 
             search(searchWord, mainList, foundlings);
 
+            //Menu when the users books have been found
             Console.WriteLine("choose on of the following options");
             Console.WriteLine("1. Delete all the books shown");
             Console.WriteLine("2. Delete one book ");
@@ -210,24 +205,60 @@ namespace bibliotekSystem
 
             option = Convert.ToInt32(Console.ReadLine());
 
+            //deletes all the books found in search
             if (option == 1)
             {
+                Console.WriteLine("All the following books will now be deleted: ");
+                showAllBooks(foundlings);
 
+                //lopp that goes through the foundlings list
+                for(int i = 0; i < foundlings.Count; i++)
+                {
+                    //loop that goes through the mainlist
+                    for( int j = 0; j < mainList.Count; j++)
+                    {
+                        //compares the foundlingslist with the mainlst an removes froms the mainlist if it matches
+                        if(mainList[j].Titel == foundlings[i].Titel || mainList[j].Author == foundlings[i].Author)
+                        {
+                            mainList.RemoveAt(j);
+                        }
+                    }
+                }
+
+                //updates data in file
+                file.bookDataOut(mainList);
             }
 
+            //deletes one book by ID
             else if (option == 2)
             {
+                //user input for ID
+                Console.Write("Enter the id of the book you want to delete: ");
+                id = Convert.ToInt32(Console.ReadLine());
 
+                //goes through mainlist 
+                for(int i = 0; i < mainList.Count; i++)
+                {
+                    //removes match
+                    if(mainList[i].Id == id)
+                    {
+                        Console.WriteLine("The book with the id " + mainList[i].Id + " has now been removed.");
+                        mainList.RemoveAt(id);
+                    }
+                }  
             }
 
+            //goes back to main menu
             else if(option == 3)
             {
                 return;
             }
 
+            // goes back to main menu
             else
             {
                 Console.WriteLine("Invalid input, you will be redirected to the main menu!");
+                return;
             }
         }
     }

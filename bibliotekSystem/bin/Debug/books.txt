@@ -4,3 +4,8 @@ herge|tintin and the black island|comicbook|False|2
 herge|tintin and the blue lotus|comicbook|False|3
 aka akasaka|kaguya-sama vol.1|manga|False|4
 harper lee|to kill a mocking bird|book|False|5
+tom clancy|threat vector|book|False|6
+tom clancy|firering point|book|False|7
+tom clancy|command authority|book|False|8
+andrea melhouse|moderna möbler|book|False|9
+torsten sylven|mästarnas möbler|book|False|10
