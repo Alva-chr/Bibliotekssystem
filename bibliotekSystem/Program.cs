@@ -88,7 +88,7 @@ namespace bibliotekSystem
                         break;
 
                     case 3:
-                        book.showAllBooks(mainBookList);
+                        book.sortingBook(mainBookList);
                         Console.ReadKey();
                         break;
 

@@ -101,6 +101,7 @@ namespace bibliotekSystem
                 }
 
                 Console.WriteLine("All the books have now been added!");
+                Console.ReadKey();
                 return;
             }
 
@@ -320,6 +321,39 @@ namespace bibliotekSystem
                     {
                         Console.WriteLine("This book is not loaned! You can't return it! You will now be redirected back to the main menu!");
                     }
+                }
+            }
+        }
+
+        public static void sortingBook(List<book> mainList)
+        {
+            //Displays all the comicbooks in the system
+            Console.WriteLine("Comicbook: ");
+            for(int i = 0; i < mainList.Count; i++)
+            {
+                if (mainList[i].Format == "comicbook")
+                {
+                    Console.WriteLine("Author: " + mainList[i].Author + " | Titel: " + mainList[i].Titel + " | Format: " + mainList[i].Format + " | Loaned: " + mainList[i].Loaned + " | ID: " + mainList[i].Id);
+                }
+            }
+
+            //Displays all the manga in the system
+            Console.WriteLine("Manga: ");
+            for (int i = 0; i < mainList.Count; i++)
+            {
+                if (mainList[i].Format == "manga")
+                {
+                    Console.WriteLine("Author: " + mainList[i].Author + " | Titel: " + mainList[i].Titel + " | Format: " + mainList[i].Format + " | Loaned: " + mainList[i].Loaned + " | ID: " + mainList[i].Id);
+                }
+            }
+
+            //Displays all the books in the system
+            Console.WriteLine("Book: ");
+            for (int i = 0; i < mainList.Count; i++)
+            {
+                if (mainList[i].Format == "book")
+                {
+                    Console.WriteLine("Author: " + mainList[i].Author + " | Titel: " + mainList[i].Titel + " | Format: " + mainList[i].Format + " | Loaned: " + mainList[i].Loaned + " | ID: " + mainList[i].Id);
                 }
             }
         }

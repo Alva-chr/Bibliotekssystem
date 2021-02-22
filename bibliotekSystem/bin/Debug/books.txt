@@ -5,3 +5,10 @@ herge|tintin and the blue lotus|comicbook|False|3
 harper lee|to kill a mocking bird|book|False|4
 andrea melhouse|moderna möbler|book|False|5
 torsten sylven|mästarnas möbler|book|True|6
+aka akasaka|kaguya-sama vol.1|manga|False|7
+aka akasaka|kaguya-sama vol.2|manga|False|8
+aka akasaka|kaguya-sama vol.3|manga|False|9
+aka akasaka|kaguya-sama vol.4|manga|False|10
+aka akasaka|kaguya-sama vol.5|manga|False|11
+susanne collins|the hunger games|book|False|12
+susanne collins|the hunger games: catching fire|book|False|13
