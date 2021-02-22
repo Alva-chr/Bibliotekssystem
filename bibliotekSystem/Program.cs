@@ -13,7 +13,7 @@ namespace bibliotekSystem
             List<book> mainBookList = new List<book>();
             List<book> temporaryList = new List<book>();
 
-            int answer, searchMenuAnswer = 0;
+            int answer, searchMenuAnswer, id = 0;
 
             string searchWord = " ";
 
@@ -23,6 +23,7 @@ namespace bibliotekSystem
             {
                 //reads in data from textfile
                 file.bookDataIn(mainBookList);
+                temporaryList.Clear();
 
                 Console.Clear();
 
@@ -38,40 +39,46 @@ namespace bibliotekSystem
                 switch (answer)
                 {
                     case 1:
-
+                        //let's user search for book with titel or authors name
                         book.searchInput(searchWord, mainBookList, temporaryList);
 
-                        Console.WriteLine("What do you want to do?");
-                        Console.WriteLine("1. Delete books");
-                        Console.WriteLine("2. Loan book");
-                        Console.WriteLine("3. Return book");
-                        Console.WriteLine("4. Exit");
-
-                        searchMenuAnswer = Convert.ToInt32(Console.ReadLine());
-
-                        switch (searchMenuAnswer)
+                        if (temporaryList.Count >= 1)
                         {
-                            case 1:
-                                // delete one or more books funtion
-                                book.deleteBook(searchWord, mainBookList, temporaryList);
-                                break;
+                            //displayss searchmenu
+                            book.searchMenu();
 
-                            case 2:
-                                // Loan book funtion
-                                break;
+                            searchMenuAnswer = Convert.ToInt32(Console.ReadLine());
 
-                            case 3:
-                                // return book funtion
-                                break;
+                            switch (searchMenuAnswer)
+                            {
+                                case 1:
+                                    // delete one or more books funtion
+                                    book.deleteBook(searchWord, mainBookList, temporaryList);
 
-                            case 4:
-                                Console.WriteLine("You will noe be redirected back to the main menu!");
-                                break;
+                                    break;
 
-                            default:
-                                Console.WriteLine("Invalid input, you will now be redirected back to the Main Menu!");
-                                Console.ReadKey();
-                                break;
+                                case 2:
+                                    // loan one book
+                                    book.loanBook(id, mainBookList);
+
+                                    break;
+
+                                case 3:
+                                    // return book funtion
+                                    book.returnBook(id, mainBookList);
+
+                                    break;
+
+                                case 4:
+                                    Console.WriteLine("You will noe be redirected back to the main menu!");
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Invalid input, you will now be redirected back to the Main Menu!");
+                                    Console.ReadKey();
+                                    break;
+                            }
+
                         }
 
                         break;
@@ -82,6 +89,7 @@ namespace bibliotekSystem
 
                     case 3:
                         book.showAllBooks(mainBookList);
+                        Console.ReadKey();
                         break;
 
                     case 4:
@@ -90,7 +98,6 @@ namespace bibliotekSystem
                 }
             }
             while (answer != 4);
-
         }
     }
 }

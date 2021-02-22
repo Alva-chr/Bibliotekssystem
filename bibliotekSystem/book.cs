@@ -35,7 +35,6 @@ namespace bibliotekSystem
             {
                 Console.WriteLine("Author: " + books[i].Author + " | Titel: " + books[i].Titel + " | Format: " + books[i].Format + " | Loaned: " + books[i].Loaned + " | ID: " + books[i].Id);
             }
-            Console.ReadKey();
         }
 
         // Function to add books
@@ -134,7 +133,7 @@ namespace bibliotekSystem
 
         public static void searchInput(string searchWord, List<book> books, List<book> foundlings)
         { 
-            char tryAgain = 'y';
+            char tryAgain;
 
             foundlings.Clear();
 
@@ -158,7 +157,7 @@ namespace bibliotekSystem
                     //if user wants return to mainmenu
                      if (tryAgain == 'n')
                      {
-                         break;
+                        return;
                      }
 
                      //let's user try again
@@ -185,9 +184,13 @@ namespace bibliotekSystem
         }
 
         //options what to do with the foundlings
-        public static void searchMeny(int answer)
+        public static void searchMenu()
         {
-
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1. Delete books");
+            Console.WriteLine("2. Loan book");
+            Console.WriteLine("3. Return book");
+            Console.WriteLine("4. Exit");
         }
 
         public static void deleteBook(string searchWord, List<book> mainList, List<book> foundlings)
@@ -259,6 +262,65 @@ namespace bibliotekSystem
             {
                 Console.WriteLine("Invalid input, you will be redirected to the main menu!");
                 return;
+            }
+
+            file.bookDataOut(mainList);
+        }
+
+        //Loaning book funtion
+        public static void loanBook (int id, List<book> mainList)
+        {
+            Console.Write("enter ID: ");
+            id = Convert.ToInt32(Console.ReadLine());
+
+            //goes through mainlist and find match
+            for(int i = 0; i < mainList.Count; i++)
+            {
+                if(mainList[i].Id == id)
+                {
+                    //user can't loan book if it is already loaned
+                    if (mainList[i].Loaned == true)
+                    {
+                        Console.WriteLine("You can't loan this book! It's already loaned by someone. You will now be returned to the mainmenu");
+                    }
+
+                    //changes status to loaned if it isn't loaned
+                    if(mainList[i].Loaned == false)
+                    {
+                        mainList[i].Loaned = true;
+                        file.bookDataOut(mainList);
+
+                        Console.WriteLine("The book is now yours to take! You will now be redirected to the main menu.");
+                    }
+                }
+            }  
+        }
+
+        //returning book function
+        public static void returnBook(int id, List<book> mainList)
+        {
+            Console.Write("enter ID: ");
+            id = Convert.ToInt32(Console.ReadLine());
+
+            //checks mainlist for match
+            for (int i = 0; i < mainList.Count; i++)
+            {
+                if (mainList[i].Id == id)
+                {
+                    //retunrs book if it's loaned
+                    if (mainList[i].Loaned == true)
+                    {
+                        mainList[i].Loaned = false;
+                        Console.WriteLine("The book is now retuned! You will noe be redirected to the mainmenu!");
+                        file.bookDataOut(mainList);
+                    }
+
+                    //error message if user tries to retunr book that isn't load
+                    if (mainList[i].Loaned == false)
+                    {
+                        Console.WriteLine("This book is not loaned! You can't return it! You will now be redirected back to the main menu!");
+                    }
+                }
             }
         }
     }
