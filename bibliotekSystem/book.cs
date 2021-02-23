@@ -283,6 +283,7 @@ namespace bibliotekSystem
                     if (mainList[i].Loaned == true)
                     {
                         Console.WriteLine("You can't loan this book! It's already loaned by someone. You will now be returned to the mainmenu");
+                        Console.ReadKey();
                     }
 
                     //changes status to loaned if it isn't loaned
@@ -320,6 +321,7 @@ namespace bibliotekSystem
                     if (mainList[i].Loaned == false)
                     {
                         Console.WriteLine("This book is not loaned! You can't return it! You will now be redirected back to the main menu!");
+                        Console.ReadKey();
                     }
                 }
             }
