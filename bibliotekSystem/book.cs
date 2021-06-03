@@ -135,6 +135,7 @@ namespace bibliotekSystem
         public static void searchInput(string searchWord, List<book> books, List<book> foundlings)
         { 
             char tryAgain;
+            bool succes;
 
             foundlings.Clear();
 
@@ -153,25 +154,35 @@ namespace bibliotekSystem
                      Console.WriteLine("We couldn't find anything matching what you searched for." +
                             "Do you want to try again (Y/N)?");
 
-                     tryAgain = Convert.ToChar(Console.ReadLine().ToLower());
+                    succes = char.TryParse(Console.ReadLine(), out tryAgain);
 
-                    //if user wants return to mainmenu
-                     if (tryAgain == 'n')
-                     {
-                        return;
-                     }
+                    if(succes == true)
+                    {
+                        //if user wants return to mainmenu
+                        if (tryAgain == 'n')
+                        {
+                            return;
+                        }
 
-                     //let's user try again
-                     else if (tryAgain == 'y')
-                     {
-                        Console.WriteLine("You will now get to try again!");
-                     }
+                        //let's user try again
+                        else if (tryAgain == 'y')
+                        {
+                            Console.WriteLine("You will now get to try again!");
+                        }
 
-                     //if user don't know how to read and don't know how to write Y/N
-                     else
-                     {
-                        Console.WriteLine("Invalid input, you will now get to try again!");
-                     }
+                        //if user don't know how to read and don't know how to write Y/N
+                        else
+                        {
+                            Console.WriteLine("Invalid input, you will now get to try again!");
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Invalid input, press enter to try and search again!");
+                        Console.ReadKey();
+                    }
+
                 }
 
                 //write out all the books found
@@ -273,29 +284,51 @@ namespace bibliotekSystem
         {
             Console.Write("enter ID: ");
             id = Convert.ToInt32(Console.ReadLine());
+            bool found = false;
 
-            //goes through mainlist and find match
-            for(int i = 0; i < mainList.Count; i++)
+            //checks if Id is within temporery list
+            for (int i = 0; i < mainList.Count; i++)
             {
                 if(mainList[i].Id == id)
                 {
-                    //user can't loan book if it is already loaned
-                    if (mainList[i].Loaned == true)
-                    {
-                        Console.WriteLine("You can't loan this book! It's already loaned by someone. You will now be returned to the mainmenu");
-                        Console.ReadKey();
-                    }
+                    found = true;
+                }
+            }
 
-                    //changes status to loaned if it isn't loaned
-                    if(mainList[i].Loaned == false)
+            if(found == true)
+            {
+                //goes through mainlist and find match
+                for (int i = 0; i < mainList.Count; i++)
+                {
+                    if (mainList[i].Id == id)
                     {
-                        mainList[i].Loaned = true;
-                        file.bookDataOut(mainList);
+                        //user can't loan book if it is already loaned
+                        if (mainList[i].Loaned == true)
+                        {
+                            Console.WriteLine("You can't loan this book! It's already loaned by someone. You will now be returned to the mainmenu");
+                            Console.ReadKey();
+                        }
 
-                        Console.WriteLine("The book is now yours to take! You will now be redirected to the main menu.");
+                        //changes status to loaned if it isn't loaned
+                        if (mainList[i].Loaned == false)
+                        {
+                            mainList[i].Loaned = true;
+                            file.bookDataOut(mainList);
+
+                            Console.WriteLine("The book is now yours to take! You will now be redirected to the main menu.");
+                        }
                     }
                 }
-            }  
+            }
+
+            else
+            {
+                Console.WriteLine("We couldn't find a book with that ID that you searched for, you will now be returned to the main menu if you press enter.");
+                Console.ReadKey();
+
+                return;
+            }
+
         }
 
         //returning book function
@@ -313,8 +346,9 @@ namespace bibliotekSystem
                     if (mainList[i].Loaned == true)
                     {
                         mainList[i].Loaned = false;
-                        Console.WriteLine("The book is now retuned! You will noe be redirected to the mainmenu!");
+                        Console.WriteLine("The book is now retuned! You will now be redirected to the mainmenu!");
                         file.bookDataOut(mainList);
+                        return;
                     }
 
                     //error message if user tries to retunr book that isn't load
